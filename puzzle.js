@@ -90,13 +90,13 @@ middlewares.setupApp(app);
 
 // -------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?: X
 routes.setup(app);
 //--- Explicación: 
-
+//Inicialización de app en app.js a través de routes.js
 // -------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?: X
 const validarPalabraMiddleware = (req, res, next) => {
   const palabraCorrecta = process.env.PALABRA_SECRETA || '';
 
@@ -108,12 +108,11 @@ const validarPalabraMiddleware = (req, res, next) => {
   }
 };
 //--- Explicación: 
-
-
+//Middleware que verifica si la palabra introducida en el formulario es la correcta. Si es correcta se asigna a la variable req.session.palabraSecreta y si no es correcta redirige al inicio con un error.
 // -------------------------------------------------------------------------------------
 
 
-//Usado?:
+//Usado?: X
 const setup = (app) => {
   app.get('/', (req, res) => {
     const mensajeError = req.query.error
@@ -125,12 +124,12 @@ const setup = (app) => {
   //Aquí va código dentro
 })}
 //--- Explicación: 
-
+/* Variable setup que utiliza el parámetro app y comprueba si hay un mensaje de error para poner un mensaje u otro. También, si la palabra secreta es correcta redirije a /profile */
 
 // -------------------------------------------------------------------------------------
 
 
-//Usado?:
+//Usado?: X
 res.send(`
   <html>
     <body>
@@ -145,7 +144,7 @@ res.send(`
   </html>
 `);
 //--- Explicación: 
-
+/*Se envía un body html con el formulario de la página de inicio*/
 
 // -------------------------------------------------------------------------------------
 
@@ -190,15 +189,15 @@ app.use(session({
 
 // -------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?: X
 app.listen(PORT, () => {
   console.log(`Servidor en ejecución en http://localhost:${PORT}`);
 });
 //--- Explicación: 
-
+//Pone a escuchar al servidor en el puerto PORT
 // -------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?: X
 const verificarSesionMiddleware = (req, res, next) => {
   if (req.session.palabraSecreta) {
     next();
@@ -207,11 +206,11 @@ const verificarSesionMiddleware = (req, res, next) => {
   }
 };
 //--- Explicación: 
-
+//Middleware que redirije con error si la palabra secreta no es correcta
 // -------------------------------------------------------------------------------------
 
 
-//Usado?:
+//Usado?: X
 app.get('/profile', middlewares.verificarSesionMiddleware, (req, res) => {
   res.send(`
     <h1>Ruta del Perfil (Sesión activa)</h1>
@@ -221,11 +220,11 @@ app.get('/profile', middlewares.verificarSesionMiddleware, (req, res) => {
   `);
 });
 //--- Explicación: 
-
+//Ruta /profile que utiliza el middleware verificarSesionMiddleware y, si pasa, envía un body HTML
 // -------------------------------------------------------------------------------------
 
 
-//Usado?:
+//Usado?: X
 app.post('/logout', (req, res) => {
   req.session.destroy((err) => {
     if (err) {
@@ -235,7 +234,7 @@ app.post('/logout', (req, res) => {
   });
 });
 //--- Explicación: 
-
+//Ruta /logout que elimina la sesión en uso
 // -------------------------------------------------------------------------------------
 
 //Usado?:
@@ -246,13 +245,13 @@ module.exports = {
 
 // -------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?: X
 module.exports = {
   validarPalabraMiddleware,
   verificarSesionMiddleware,
   setupAPP,
 };
 //--- Explicación:
-
+// Exportación de los middleware como un objeto
 // -------------------------------------------------------------------------------------
 
