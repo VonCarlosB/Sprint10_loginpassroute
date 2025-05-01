@@ -1,93 +1,93 @@
 // Snippets de código para poder componer el programa
 
-//Usado?: 
+//Usado?: X
   const middlewares = require('./middlewares');
 //--- Explicación: 
-
+// Importa los middlewares del archivo middlewares.js
 // -------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: X
 const bodyParser = require('body-parser');
 //--- Explicación:
-
+// Crea la variable bodyParser que requiere el módulo 'body-parser'
 // -------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: X
 const session = require('express-session');
 //--- Explicación:
-
+// Crea la variable session que requiere el módulo 'express-session'
 // -------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: X
 const express = require('express');
 //--- Explicación:
-
+// Crea la variable express que requiere el módulo 'express'
 // -------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: X
 const bodyParser = require('body-parser');
 //--- Explicación:
-
+// Crea la variable bodyParser que requiere le módulo 'body-parser'
 // -------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: X
 const session = require('express-session');
 //--- Explicación:
-
+// Crea la variable session que requiere el módulo 'express-session'
 // -------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: X
 const dotenv = require('dotenv');
 //--- Explicación:
-
+// Crea la variable dotenv que requiere el módulo 'dotenv'
 // -------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: X
 const middlewares = require('./middlewares');
 //--- Explicación:
-
+// Crea la variable middlewares que requiere el módulo 'middlewares.js'
 // -------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: X
 const routes = require('./routes');
 //--- Explicación:
-
+// Crea la variable routes que requiere el módulo 'routes.js'
 // -------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: X
 dotenv.config();
 //--- Explicación:
-
+// Llama a la función config() de la variable dotenv
 // -------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: X
 const app = express();
 //--- Explicación:
-
+// Crea el servidor app utilizando la variable express
 // -------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: X
 const PORT = 4000;
 //--- Explicación:
-
+// Crea una variable PORT que almacena el número del puerto en el que escucha el servidor, en este caso el 4000
 // -------------------------------------------------------------------------------------
 
-//Usado?: 
+//Usado?: X
 const dotenv = require('dotenv');
 //--- Explicación:
-
+// Crea la variable dotenv que requiere el módulo 'dotenv'
 // -------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?: X
 dotenv.config();
 //--- Explicación:
-
+// Ejecuta la función config() de la variable dotenv
 // -------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?: X
 middlewares.setupApp(app);
 //--- Explicación: 
-
+// Llama a la función setupApp con el parámetro app
 // -------------------------------------------------------------------------------------
 
 //Usado?: X
@@ -148,7 +148,7 @@ res.send(`
 
 // -------------------------------------------------------------------------------------
 
-
+//Usado?: X
 const setupAPP = (app) => {
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(session({
@@ -157,8 +157,11 @@ const setupAPP = (app) => {
     saveUninitialized: true,
   }));
 };
+//--- Explicación: 
+// Constante/función setupAPP que utiliza el parámetro app para cambiar algunas de sus configuraciones, establecer un bodyParser y una session
+// -------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?: X
 app.post('/profile', middlewares.validarPalabraMiddleware, (req, res) => {
   res.send(`
     <h1>Ruta del Perfil</h1>
@@ -168,14 +171,14 @@ app.post('/profile', middlewares.validarPalabraMiddleware, (req, res) => {
   `);
 });
 //--- Explicación: 
-
+// Ruta /profile que primero debe pasar por el middleware validarPalabraMiddleware para luego enviar el body para cerrar la sesión.
 // -------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?: X
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //--- Explicación: 
-
+// Permite codificar la url
 // -------------------------------------------------------------------------------------
 
 //Usado?:
@@ -237,12 +240,12 @@ app.post('/logout', (req, res) => {
 //Ruta /logout que elimina la sesión en uso
 // -------------------------------------------------------------------------------------
 
-//Usado?:
+//Usado?: X
 module.exports = {
   setup,
 };
 //--- Explicación:
-
+// Exportación de la constante/función setup
 // -------------------------------------------------------------------------------------
 
 //Usado?: X

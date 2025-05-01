@@ -1,14 +1,6 @@
 const session = require('express-session')
 const bodyParser = require('body-parser')
 
-const verificarSesionMiddleware = (req, res, next) => {
-    if (req.session.palabraSecreta) {
-        next();
-    } else {
-        res.redirect('/?error=2');
-    }
-};
-
 const setupAPP = (app) => {
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(session({
@@ -16,6 +8,14 @@ const setupAPP = (app) => {
         resave: false,
         saveUninitialized: true,
     }));
+};
+
+const verificarSesionMiddleware = (req, res, next) => {
+    if (req.session.palabraSecreta) {
+        next();
+    } else {
+        res.redirect('/?error=2');
+    }
 };
 
 const validarPalabraMiddleware = (req, res, next) => {
